@@ -1,14 +1,10 @@
-# StoryDiffusion 🎨
+# StoryDiffusion - 智能故事图像生成系统
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Gradio](https://img.shields.io/badge/Gradio-5.44.1-orange.svg)](https://gradio.app/)
+## 项目简介
 
-> 基于 Stable Diffusion XL 的智能故事图像生成系统，支持人物身份保持和故事连续性生成
+StoryDiffusion 是一个基于 Stable Diffusion XL 的智能故事图像生成系统，支持人物身份保持和故事连续性生成。
 
-## 📋 项目说明
-
-**⚠️ 重要说明：** 本项目是基于 [HVision-NKU/StoryDiffusion](https://github.com/HVision-NKU/StoryDiffusion) 的 fork 版本，原项目已于 2024 年停止更新。
+**⚠️ 重要说明：** 本项目是基于 [HVision-NKU/StoryDiffusion](https://github.com/HVision-NKU/StoryDiffusion) 的 fork 版本，原项目已于 2024 年停止更新。本版本已修复所有依赖版本兼容性问题，确保在现代环境中正常运行。
 
 ### 🔄 主要更新内容
 
@@ -17,42 +13,17 @@
 - ✅ **现代化依赖管理** - 使用最新的稳定版本，确保长期维护性
 - ✅ **跨平台优化** - 支持 macOS、Linux、Windows 等平台
 
-### 📦 依赖版本对比
-
-| 依赖库 | 原版本 | 更新版本 | 状态 |
-|--------|--------|----------|------|
-| gradio | 4.22.0 | 5.44.1 | ✅ 更新 |
-| diffusers | 0.25.0 | 0.35.1 | ✅ 更新 |
-| transformers | 4.36.2 | 4.56.0 | ✅ 更新 |
-| huggingface-hub | 0.20.2 | 0.34.4 | ✅ 更新 |
-| accelerate | - | 1.10.1 | ✅ 新增 |
-| peft | - | 0.17.1 | ✅ 新增 |
-
----
-
-## ✨ 特性
-
-- 🎭 **人物身份保持**: 使用 PhotoMaker 技术保持人物特征一致性
-- 📖 **故事连续性**: 支持多帧故事图像生成
-- 💾 **低显存优化**: 针对低显存设备优化
-- 🚀 **多种模型支持**: 支持 SDXL、RealVision、Juggernaut 等模型
-- 🖥️ **跨平台支持**: 支持 CUDA、MPS、CPU
-
-## 🚀 快速开始
-
-### 环境要求
+## 环境要求
 
 - Python 3.8+
 - CUDA 11.8+ (推荐) 或 MPS (Apple Silicon)
 - 至少 8GB VRAM (推荐 16GB+)
 
-### 安装
+## 快速开始
+
+### 1. 环境设置
 
 ```bash
-# 克隆仓库
-git clone https://github.com/yourusername/StoryDiffusion.git
-cd StoryDiffusion
-
 # 创建虚拟环境
 python -m venv storydiffusion_env
 
@@ -66,7 +37,7 @@ source storydiffusion_env/bin/activate
 pip install -r requirements.txt
 ```
 
-### 下载模型
+### 2. 下载必要模型
 
 在运行前，您需要下载以下模型文件：
 
@@ -79,14 +50,21 @@ mkdir -p data
 # 放置到 data/photomaker-v1.bin
 ```
 
-### 运行应用
+### 3. 运行应用
 
 ```bash
 # 启动 Gradio 界面
 python gradio_app_sdxl_specific_id_low_vram.py
 ```
 
-## 📁 文件结构
+## 主要功能
+
+- **人物身份保持**: 使用 PhotoMaker 技术保持人物特征一致性
+- **故事连续性**: 支持多帧故事图像生成
+- **低显存优化**: 针对低显存设备优化
+- **多种模型支持**: 支持 SDXL、RealVision、Juggernaut 等模型
+
+## 文件结构
 
 ```
 StoryDiffusion/
@@ -106,43 +84,51 @@ StoryDiffusion/
 └── README.md                               # 说明文档
 ```
 
-## 🔧 主要功能
+## 依赖版本信息
 
-### 人物身份保持
-- 使用 PhotoMaker 技术
-- 支持多张参考图片
-- 保持人物特征一致性
+### 核心依赖
+- **gradio**: 5.44.1 (原 4.22.0)
+- **diffusers**: 0.35.1 (原 0.25.0)
+- **transformers**: 4.56.0 (原 4.36.2)
+- **huggingface-hub**: 0.34.4 (原 0.20.2)
+- **accelerate**: 1.10.1 (新增)
+- **peft**: 0.17.1 (新增)
 
-### 故事连续性生成
-- 支持多帧故事生成
-- 自动处理时序关系
-- 保持场景连贯性
+### 其他依赖
+- **torch**: 2.8.0
+- **torchvision**: 0.23.0
+- **xformers**: 0.0.20
+- **safetensors**: 0.6.2
+- **omegaconf**: 2.3.0
+- **numpy**: 1.26.4
 
-### 低显存优化
-- 针对低显存设备优化
-- 支持梯度检查点
-- 内存使用优化
+## 故障排除
 
-## 🤝 贡献
+### 常见问题
 
-欢迎提交 Issue 和 Pull Request！
+1. **依赖版本冲突**: 确保使用 `requirements.txt` 中的精确版本
+2. **显存不足**: 使用低显存模式或减少批处理大小
+3. **模型下载失败**: 检查网络连接，使用镜像源
+4. **CUDA 错误**: 确保 CUDA 版本与 PyTorch 兼容
 
-## 📄 许可证
+### 性能优化
+
+- 使用 SSD 存储模型文件
+- 启用 CUDA 优化
+- 调整批处理大小
+- 使用梯度检查点节省显存
+
+## 许可证
 
 本项目基于原项目的 Apache-2.0 许可证。
 
-## 🙏 致谢
+## 致谢
 
 - 原项目：[HVision-NKU/StoryDiffusion](https://github.com/HVision-NKU/StoryDiffusion)
 - 作者：Yupeng Zhou, Daquan Zhou, Ming-Ming Cheng, Jiashi Feng, Qibin Hou
 - 论文：[StoryDiffusion: Consistent Self-Attention for Long-Range Image and Video Generation](https://arxiv.org/abs/2403.12003)
 
-## 📞 联系方式
+## 联系方式
 
-如有问题，请通过以下方式联系：
 - 原项目：ypzhousdu@gmail.com, zhoudaquan21@gmail.com
 - 本 fork：请通过 GitHub Issues 联系
-
----
-
-**注意：** 本项目仅用于研究和学习目的，请遵守相关法律法规。

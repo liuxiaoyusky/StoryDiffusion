@@ -71,6 +71,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+storydiffusion_env/
 
 # Spyder project settings
 .spyderproject
@@ -88,11 +89,80 @@ venv.bak/
 
 # ignore ALL .log files
 *.log
-# ignore ALL files in ANY directory named temp
-.ipynb_checkpoints/
-images/.ipynb_checkpoints/
-results/
-.vscode/settings.json
-fonts/agency.ttf
-fonts/calibri.ttf
+
+# Gradio cache
+.gradio/
+
+# Large model files and data
 data/
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# Large notebooks
+*.ipynb
+
+# Results and outputs
+results_examples/
+outputs/
+generated_images/
+temp/
+tmp/
+
+# Old versions
+oldversion/
+
+# Large image files (exclude most, keep only essential)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.webp
+
+# Keep only essential images
+!images/logo.png
+!images/pad_images.png
+!examples/*/1.png
+!examples/*/1.jpeg
+!examples/*/1-1.png
+!examples/*/2.png
+!examples/*/images.jpeg
+!examples/*/yann-lecun2.png
+
+# Fonts (exclude most, keep only essential)
+fonts/*
+!fonts/Inkfree.ttf
+
+# Config files (exclude most, keep only essential)
+config/*
+!config/models.yaml
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
