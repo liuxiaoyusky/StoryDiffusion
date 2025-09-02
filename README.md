@@ -28,6 +28,27 @@
 | accelerate | - | 1.10.1 | ✅ 新增 |
 | peft | - | 0.17.1 | ✅ 新增 |
 
+### 🔄 Fork 与同步说明
+
+本项目是原项目的 fork 版本，具有以下特点：
+
+- **独立开发**: 可以自由修改代码而不影响原项目
+- **长期维护**: 当原项目停止更新时，可以继续维护和改进
+- **上游同步**: 如果原项目恢复更新，可以通过 `sync_upstream.sh` 脚本同步
+
+#### 同步上游更新（如果原项目恢复更新）
+
+```bash
+# 运行同步脚本
+./sync_upstream.sh
+
+# 或者手动同步
+git fetch upstream
+git checkout -b sync-upstream
+git merge upstream/main
+# 解决冲突后合并到主分支
+```
+
 ---
 
 ## ✨ 特性
@@ -50,7 +71,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/StoryDiffusion.git
+git clone https://github.com/liuxiaoyusky/StoryDiffusion.git
 cd StoryDiffusion
 
 # 创建虚拟环境
@@ -93,6 +114,7 @@ StoryDiffusion/
 ├── gradio_app_sdxl_specific_id_low_vram.py  # 主应用文件
 ├── app.py                                   # 简化版应用
 ├── predict.py                               # 预测接口
+├── sync_upstream.sh                         # 上游同步脚本
 ├── utils/                                   # 工具模块
 │   ├── pipeline.py                         # 核心管道
 │   ├── gradio_utils.py                     # Gradio 工具
@@ -139,7 +161,6 @@ StoryDiffusion/
 
 ## 📞 联系方式
 
-如有问题，请通过以下方式联系：
 - 原项目：ypzhousdu@gmail.com, zhoudaquan21@gmail.com
 - 本 fork：请通过 GitHub Issues 联系
 
